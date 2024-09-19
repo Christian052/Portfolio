@@ -19,11 +19,11 @@
         <div class="bx bx-menu" id="menu-icon"></div>
 
         <ul class="navbar">
-            <li><a href="#home">Home</a></li>
+            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <!-- <li><a href="#contact">Contact</a></li> -->
         </ul>
 
         <div class="top-btn">
@@ -57,7 +57,7 @@
     <!-- skill Section -->
 
     <section id="skills" class="skill">
-    <h2 class="heading"><span>My Skills</span></h2>
+        <h2 class="heading"><span>My Skills</span></h2>
         <div class="skill-se">
             <div class="skill-content">
                 <div class="skill-box">
@@ -110,21 +110,21 @@
                 <h3>Web Development</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet deserunt, libero nam doloribus, laborum
                     perferendis praesentium cum, eum explicabo sit excepturi. Earum!</p>
-                <a href="#" class="btn">Read More</a>
+                <a href="#home" class="btn">Read More</a>
             </div>
             <div class="services-box">
                 <i class='bx bx-palette'></i>
                 <h3>Graphic Design</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet deserunt, libero nam doloribus, laborum
                     perferendis praesentium cum, eum explicabo sit excepturi. Earum!</p>
-                <a href="#" class="btn">Read More</a>
+                <a href="#home" class="btn">Read More</a>
             </div>
             <div class="services-box">
-                <i class='bx bx-bar-chart-alt'></i>
-                <h3>Digital Marketing</h3>
+                <i class='bx bx-photo-album'></i>
+                <h3>Photographs </h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet deserunt, libero nam doloribus, laborum
                     perferendis praesentium cum, eum explicabo sit excepturi. Earum!</p>
-                <a href="#" class="btn">Read More</a>
+                <a href="#home" class="btn">Read More</a>
             </div>
         </div>
     </section>
@@ -136,7 +136,7 @@
 
         <div class="portfolio-container">
             <div class="portfolio-box">
-                <img src="assets/portfolio1.jpg" alt="">
+                <img src="assets/portfolio1.jpg" alt="portfolio-box">
 
                 <div class="portfolio-layer">
                     <h4>Web Design</h4>
@@ -145,7 +145,7 @@
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="assets/portfolio2.jpg" alt="">
+                <img src="assets/portfolio2.jpg" alt="portfolio-box">
 
                 <div class="portfolio-layer">
                     <h4>Web Design</h4>
@@ -154,7 +154,7 @@
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="assets/portfolio3.jpg" alt="">
+                <img src="assets/portfolio3.jpg" alt="portfolio-box">
 
                 <div class="portfolio-layer">
                     <h4>Web Design</h4>
@@ -163,7 +163,7 @@
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="assets/portfolio4.jpg" alt="">
+                <img src="assets/portfolio4.jpg" alt="portfolio-box">
 
                 <div class="portfolio-layer">
                     <h4>Web Design</h4>
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="assets/portfolio5.jpg" alt="">
+                <img src="assets/portfolio5.jpg" alt="portfolio-box">
 
                 <div class="portfolio-layer">
                     <h4>Web Design</h4>
@@ -181,7 +181,7 @@
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="assets/portfolio6.jpg" alt="">
+                <img src="assets/portfolio6.jpg" alt="portfolio-box">
 
                 <div class="portfolio-layer">
                     <h4>Web Design</h4>
@@ -212,7 +212,7 @@
                     <h4>Our Services</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#skill">skills</a></li>
+                        <li><a href="#skills">skills</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -232,9 +232,9 @@
                 <div class="col">
                     <h4>Contact Us</h4>
                     <div class="social">
-                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                        <a href="https://web.facebook.com/doctorwishavu"><i class='bx bxl-facebook'></i></a>
                         <a href="#"><i class='bx bxl-instagram'></i></a>
-                        <a href="#"><i class='bx bxl-google'></i></a>
+                        <a href="https://mail.google.com/mail/doctorshavu@gmail.com"><i class='bx bxl-google'></i></a>
                         <a href="#"><i class='bx bxl-whatsapp'></i></a>
                     </div>
                 </div>
@@ -246,6 +246,26 @@
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="main.js"></script>
+    <script>
+        let section = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('header ul li a');
+
+        window.onscroll = () => {
+            section.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 70;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        document.querySelector('header ul li a[href*=' + id + ']').classList.add('active');
+                    });
+                };
+            });
+        };
+    </script>
 </body>
 
 </html>
